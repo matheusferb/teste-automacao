@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.13.13 on win32)" generated="2026-11-10T19:50:19.769717" rpa="false" schemaversion="5">
+<suite id="s1" name="Api Tests" source="C:\Users\lab05\Desktop\TesteAutomacao\tests\api_tests.robot">
+<kw name="Conectar na API DummyJSON" owner="common" type="SETUP">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-11-10T19:50:19.865257" level="INFO">Creating Session using : alias=dummyApi, url=https://dummyjson.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>dummyApi</arg>
+<arg>${BASE_URL}</arg>
+<arg>disable_warnings=1</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-11-10T19:50:19.865096" elapsed="0.000294"/>
+</kw>
+<status status="PASS" start="2026-11-10T19:50:19.864829" elapsed="0.000621"/>
+</kw>
+<test id="s1-t1" name="Cenario 01: Deve retornar uma lista de produtos com sucesso (GET)" line="6">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-11-10T19:50:19.865970" level="INFO">Creating Session using : alias=dummyApi, url=https://dummyjson.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>dummyApi</arg>
+<arg>${BASE_URL}</arg>
+<arg>disable_warnings=1</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-11-10T19:50:19.865840" elapsed="0.000226"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2026-11-10T19:50:19.967381" level="INFO">GET Request : url=https://dummyjson.com/products/1 
+ path_url=/products/1 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2026-11-10T19:50:19.967513" level="INFO">GET Response : url=https://dummyjson.com/products/1 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 10 Nov 2026 22:48:32 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=bnIMCW0oCrnLvJgY2YThQKXGniRtYq6xCdlGnZAsEJhws1R7v1L9iankAwp4RKs10EiJh1ejTK8gdub%2Fv9xH8MR9phLXqVANNa2%2B49AfP%2BE8jXQQ442EuE50huJ7KoN3"}]}', 'etag': 'W/"5e6-LuZgXJ6APIKHswyRKC9GQ6dxUNE"', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'vary': 'Origin, Accept-Encoding', 'x-content-type-options': 'nosniff', 'x-dns-prefetch-control': 'off', 'x-download-options': 'noopen', 'x-frame-options': 'SAMEORIGIN', 'x-ratelimit-limit': '100', 'x-ratelimit-remaining': '99', 'x-ratelimit-reset': '1793683460', 'x-xss-protection': '1; mode=block', 'Age': '62648', 'Cache-Control': 'no-store', 'cf-cache-status': 'HIT', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Content-Encoding': 'gzip', 'Server': 'cloudflare', 'CF-RAY': 'a5889af5496fd973-GRU'} 
+ body={"id":1,"title":"Essence Mascara Lash Princess","description":"The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.","category":"beauty","price":9.99,"discountPercentage":10.48,"rating":2.56,"stock":99,"tags":["beauty","mascara"],"brand":"Essence","sku":"BEA-ESS-ESS-001","weight":4,"dimensions":{"width":15.14,"height":13.08,"depth":22.99},"warrantyInformation":"1 week warranty","shippingInformation":"Ships in 3-5 business days","availabilityStatus":"In Stock","reviews":[{"rating":3,"comment":"Would not recommend!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Eleanor Collins","reviewerEmail":"eleanor.collins@x.dummyjson.com"},{"rating":4,"comment":"Very satisfied!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Lucas Gordon","reviewerEmail":"lucas.gordon@x.dummyjson.com"},{"rating":5,"comment":"Highly impressed!","date":"2025-04-30T09:41:02.053Z","reviewerName":"Eleanor Collins","reviewerEmail":"eleanor.collins@x.dummyjson.com"}],"returnPolicy":"No return policy","minimumOrderQuantity":48,"meta":{"createdAt":"2025-10-09T14:47:01.588Z","updatedAt":"2026-05-23T11:27:41.868Z","barcode":"5784719087687","qrCode":"https://cdn.dummyjson.com/public/qr-code.png"},"images":["https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"],"thumbnail":"https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp"} 
+ </msg>
+<msg time="2026-11-10T19:50:19.967660" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>dummyApi</arg>
+<arg>/products/1</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-11-10T19:50:19.866258" elapsed="0.101431"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2026-11-10T19:50:19.968643" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2026-11-10T19:50:19.968023" elapsed="0.000684"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-11-10T19:50:19.969551" level="INFO">${body} = {'id': 1, 'title': 'Essence Mascara Lash Princess', 'description': 'The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes wit...</msg>
+<var>${body}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-11-10T19:50:19.968965" elapsed="0.000615"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${body}[title]</arg>
+<arg>Essence Mascara Lash Princess</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-11-10T19:50:19.969836" elapsed="0.000291"/>
+</kw>
+<status status="PASS" start="2026-11-10T19:50:19.865487" elapsed="0.104899"/>
+</test>
+<test id="s1-t2" name="Cenario 02: Deve realizar login com sucesso simulando autenticação (POST)" line="20">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-11-10T19:50:19.971502" level="INFO">Creating Session using : alias=dummyApi, url=https://dummyjson.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>dummyApi</arg>
+<arg>${BASE_URL}</arg>
+<arg>disable_warnings=1</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-11-10T19:50:19.971308" elapsed="0.000348"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-11-10T19:50:19.972313" level="INFO">&amp;{usuario} = { username=emilys | password=emilyspass }</msg>
+<var>&amp;{usuario}</var>
+<arg>username=emilys</arg>
+<arg>password=emilyspass</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-11-10T19:50:19.971893" elapsed="0.000447"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-11-10T19:50:20.195976" level="INFO">POST Request : url=https://dummyjson.com/auth/login 
+ path_url=/auth/login 
+ headers={'User-Agent': 'python-requests/2.34.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '48', 'Content-Type': 'application/json'} 
+ body=b'{"username": "emilys", "password": "emilyspass"}' 
+ </msg>
+<msg time="2026-11-10T19:50:20.196084" level="INFO">POST Response : url=https://dummyjson.com/auth/login 
+ status=200, reason=OK 
+ headers={'Date': 'Tue, 10 Nov 2026 22:48:33 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'access-control-allow-credentials': 'true', 'etag': 'W/"3a2-50yVlJC4A0uvjnRuW8zKOQLwmwA"', 'Set-Cookie': 'accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJlbWlseXMiLCJlbWFpbCI6ImVtaWx5LmpvaG5zb25AeC5kdW1teWpzb24uY29tIiwiZmlyc3ROYW1lIjoiRW1pbHkiLCJsYXN0TmFtZSI6IkpvaG5zb24iLCJnZW5kZXIiOiJmZW1hbGUiLCJpbWFnZSI6Imh0dHBzOi8vZHVtbXlqc29uLmNvbS9pY29uL2VtaWx5cy8xMjgiLCJpYXQiOjE3OTQzNTA5MTMsImV4cCI6MTc5NDM1NDUxM30.W604H1Ny7onguHVzsYVk-kqBBTFzdo1YnQu7H7wl3uY; Max-Age=3600; Path=/; Expires=Tue, 10 Nov 2026 23:48:33 GMT; HttpOnly; Secure, refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJlbWlseXMiLCJlbWFpbCI6ImVtaWx5LmpvaG5zb25AeC5kdW1teWpzb24uY29tIiwiZmlyc3ROYW1lIjoiRW1pbHkiLCJsYXN0TmFtZSI6IkpvaG5zb24iLCJnZW5kZXIiOiJmZW1hbGUiLCJpbWFnZSI6Imh0dHBzOi8vZHVtbXlqc29uLmNvbS9pY29uL2VtaWx5cy8xMjgiLCJpYXQiOjE3OTQzNTA5MTMsImV4cCI6MTc5Njk0MjkxM30.jADBvKUkUldZwLx87S0z3rRBKGj0CivNrr-6wSjVJrY; Max-Age=3600; Path=/; Expires=Tue, 10 Nov 2026 23:48:33 GMT; HttpOnly; Secure', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'vary': 'Origin, Accept-Encoding', 'x-content-type-options': 'nosniff', 'x-dns-prefetch-control': 'off', 'x-download-options': 'noopen', 'x-frame-options': 'SAMEORIGIN', 'x-ratelimit-limit': '100', 'x-ratelimit-remaining': '98', 'x-ratelimit-reset': '1794350918', 'x-xss-protection': '1; mode=block', 'cf-cache-status': 'DYNAMIC', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=Kq4xGvsMAE6sBMcsE6gowbkIjDadsJxQ9hjAHGbLb2SwqIp7JrCoZ6wfdCUg9EAUVFOWDheisoT5K2LDTJeqGTxZQMJsjond1uCd92o%2ByFIy%2B0J%2BZOUP434W90uioUp2"}]}', 'Content-Encoding': 'gzip', 'Server': 'cloudflare', 'CF-RAY': 'a5889af5acc7f1db-GRU'} 
+ body={"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJlbWlseXMiLCJlbWFpbCI6ImVtaWx5LmpvaG5zb25AeC5kdW1teWpzb24uY29tIiwiZmlyc3ROYW1lIjoiRW1pbHkiLCJsYXN0TmFtZSI6IkpvaG5zb24iLCJnZW5kZXIiOiJmZW1hbGUiLCJpbWFnZSI6Imh0dHBzOi8vZHVtbXlqc29uLmNvbS9pY29uL2VtaWx5cy8xMjgiLCJpYXQiOjE3OTQzNTA5MTMsImV4cCI6MTc5NDM1NDUxM30.W604H1Ny7onguHVzsYVk-kqBBTFzdo1YnQu7H7wl3uY","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJlbWlseXMiLCJlbWFpbCI6ImVtaWx5LmpvaG5zb25AeC5kdW1teWpzb24uY29tIiwiZmlyc3ROYW1lIjoiRW1pbHkiLCJsYXN0TmFtZSI6IkpvaG5zb24iLCJnZW5kZXIiOiJmZW1hbGUiLCJpbWFnZSI6Imh0dHBzOi8vZHVtbXlqc29uLmNvbS9pY29uL2VtaWx5cy8xMjgiLCJpYXQiOjE3OTQzNTA5MTMsImV4cCI6MTc5Njk0MjkxM30.jADBvKUkUldZwLx87S0z3rRBKGj0CivNrr-6wSjVJrY","id":1,"username":"emilys","email":"emily.johnson@x.dummyjson.com","firstName":"Emily","lastName":"Johnson","gender":"female","image":"https://dummyjson.com/icon/emilys/128"} 
+ </msg>
+<msg time="2026-11-10T19:50:20.196416" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>dummyApi</arg>
+<arg>/auth/login</arg>
+<arg>json=${usuario}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-11-10T19:50:19.972514" elapsed="0.223932"/>
+</kw>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2026-11-10T19:50:20.197335" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2026-11-10T19:50:20.196752" elapsed="0.000645"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-11-10T19:50:20.198199" level="INFO">${body} = {'accessToken': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJlbWlseXMiLCJlbWFpbCI6ImVtaWx5LmpvaG5zb25AeC5kdW1teWpzb24uY29tIiwiZmlyc3ROYW1lIjoiRW1pbHkiLCJsYXN0TmFtZSI6IkpvaG5zb24iLC...</msg>
+<var>${body}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-11-10T19:50:20.197658" elapsed="0.000569"/>
+</kw>
+<kw name="Dictionary Should Contain Key">
+<kw name="Fail" owner="BuiltIn">
+<msg time="2026-11-10T19:50:20.199158" level="FAIL">Not Implemented</msg>
+<arg>Not Implemented</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="FAIL" start="2026-11-10T19:50:20.198874" elapsed="0.000427">Not Implemented</status>
+</kw>
+<arg>${body}</arg>
+<arg>token</arg>
+<status status="FAIL" start="2026-11-10T19:50:20.198584" elapsed="0.000838">Not Implemented</status>
+</kw>
+<status status="FAIL" start="2026-11-10T19:50:19.970885" elapsed="0.228856">Not Implemented</status>
+</test>
+<status status="FAIL" start="2026-11-10T19:50:19.770737" elapsed="0.429682"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Api Tests" id="s1" pass="1" fail="1" skip="0">Api Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
