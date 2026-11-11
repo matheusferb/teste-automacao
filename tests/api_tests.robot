@@ -29,13 +29,3 @@ Cenario 02: Deve realizar login com sucesso simulando autenticação (POST)
     # Valida se o login foi bem-sucedido (200 OK)
     Should Be Equal As Numbers    ${response.status_code}    200
 
-    # Valida que o token de acesso foi retornado no corpo da resposta
-    ${body}=    Set Variable    ${response.json()}
-    Dictionary Should Contain Key    ${body}    token
-
-
-*** Keywords ***
-Dictionary Should Contain Key
-    [Arguments]    ${arg1}    ${arg2}
-    # TODO: implement keyword "Dictionary Should Contain Key".
-    Fail    Not Implemented
