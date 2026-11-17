@@ -49,7 +49,6 @@ O projeto contempla os seguintes cenários de teste na API DummyJSON:
 ├── tests/
 │   └── api_tests.robot      # Casos de teste automatizados (GET e POST)
 ├── results/                 # Diretório onde os relatórios da execução são salvos
-├── requirements.txt         # Lista de dependências Python do projeto
 └── README.md                # Documentação do projeto
 ```
 
