@@ -82,7 +82,7 @@ Certifique-se de ter instalado em sua máquina:
 
 3. Instale as dependências necessárias:
    ```bash
-   pip install -r requirements.txt
+   pip install robotframework robotframework-requests
    ```
 
 ---
@@ -107,6 +107,6 @@ Após a execução, acesse a pasta `results/` e abra qualquer um dos arquivos ab
 O projeto foi configurado para ser executado de forma simples em pipelines de Integração Contínua (CI/CD). Por ser baseado em CLI (Interface de Linha de Comando), ele pode ser disparado em um workflow do **GitHub Actions** adicionando as seguintes etapas no pipeline:
 
 1. Instalação do Python.
-2. Execução do `pip install -r requirements.txt`.
+2. Execução do `pip install robotframework robotframework-requests`.
 3. Execução do comando `robot -d results tests/api_tests.robot`.
 4. Armazenamento da pasta `results` como artefato da compilação.
